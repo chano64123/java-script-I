@@ -14,3 +14,15 @@ const resultadoMenos10 = triple - 10;
 
 const mensajeFinal = "El promedio de los numeros ingresados es: " + promedio + ". El triple del promdio es: " + triple + ". El triple menos 10 es: " + resultadoMenos10;
 alert(mensajeFinal)
+
+//Siguiente clase
+let cantidadNumeros = Number(prompt("¿Cuantos numeros desea sumar?"));
+
+let sumatoria = 0;
+
+for (let i = 1; i <= cantidadNumeros; i++) {
+  let numetoIngresado = Number(prompt("Ingrese un numero a sumar"))
+  sumatoria = sumatoria + numetoIngresado;
+}
+
+console.log("El resultado de la sumatoria es: " + sumatoria);
