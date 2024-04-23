@@ -17,14 +17,19 @@ const createCard = (product) => {
   `;
 }
 
-const productsSelector = document.getElementById("products");
+const printCards = (arrayOfProducts, idSelector) => {
+  let productsTemplate = "";
 
-let productsTemplate = "";
-for (let product of products) {
-  productsTemplate += createCard(product);
+  for (let product of arrayOfProducts) {
+    productsTemplate += createCard(product);
+  }
+
+  const productsSelector = document.getElementById(idSelector);
+  productsSelector.innerHTML = productsTemplate
 }
 
-productsSelector.innerHTML = productsTemplate
+printCards(products, 'products')
+
 
 
 
