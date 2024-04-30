@@ -22,6 +22,30 @@ const changeSubtotal = (event) => {
 
 }
 
+const saveProduct = () => {
+  const product = products.find(product => product.id === Number(id))
+  const buy = {
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    image: product.images[0],
+    color: document.querySelector('#color').value,
+    quantity: Number(document.querySelector('#quantity').value)
+  }
+
+  let carrito = localStorage.getItem('cart');
+
+  if (carrito == null) {
+    const stringBuy = JSON.stringify([buy]);
+    localStorage.setItem("cart", stringBuy);
+  } else {
+    let carritoLocalStorage = JSON.parse(carrito);
+    //! VALIDACION DE PRODUCTO REPETIDO
+    carritoLocalStorage.push(buy);
+    localStorage.setItem('cart', JSON.stringify(carritoLocalStorage));
+  }
+}
+
 const printDetails = (productId) => {
   const product = products.find(product => product.id === Number(productId));
   productImageSection.innerHTML = getProductImageTemplate(product);
@@ -38,16 +62,16 @@ const getProductImageTemplate = (product) => {
 }
 
 const getProductDescriptionTemplate = (product) => {
-  let colors = product.colors.map(x => `<option>${x}</option>`);
+  let colors = product.colors.map(color => `<option value=${color}>${color}</option>`);
   return `
     <h1 class="title">${product.title}</h1>
     <form class="selector">
         <fieldset>
             <label class="label" for="color">Color</label>
             <select id="color">
-                ${colors.join('')}
+            ${colors.join('')}
             </select>
-        </fieldset>
+            </fieldset>
     </form>
     <p class="description">${product.description}</p>
   `;
@@ -71,11 +95,11 @@ const getProductCheckoutTemplate = (product) => {
       </ul>
       <div class="checkout-process">
         <div class="top">
-          <input type="number" value="1" min="1" max="10" onchange="changeSubtotal(event)">
+          <input id="quantity" type="number" value="1" min="1" max="10" onchange="changeSubtotal(event)">
           <button class="btn-primary">Comprar</button>
         </div>
         <div class="bottom">
-          <button class="btn-outline">Agregar al carrito</button>
+          <button class="btn-outline" onclick="saveProduct()">Agregar al carrito</button>
         </div>
       </div>
     </div>
