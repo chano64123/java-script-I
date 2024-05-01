@@ -24,13 +24,15 @@ const changeSubtotal = (event) => {
 
 const saveProduct = () => {
   const product = products.find(product => product.id === Number(id))
+  const quantity = Number(document.querySelector('#quantity').value);
   const buy = {
     id: product.id,
     title: product.title,
     price: product.price,
+    description: product.description,
     image: product.images[0],
     color: document.querySelector('#color').value,
-    quantity: Number(document.querySelector('#quantity').value)
+    quantity
   }
 
   let carrito = localStorage.getItem('cart');
@@ -66,12 +68,12 @@ const getProductDescriptionTemplate = (product) => {
   return `
     <h1 class="title">${product.title}</h1>
     <form class="selector">
-        <fieldset>
-            <label class="label" for="color">Color</label>
-            <select id="color">
-            ${colors.join('')}
-            </select>
-            </fieldset>
+      <fieldset>
+        <label class="label" for="color">Color</label>
+        <select id="color">
+          ${colors.join('')}
+        </select>
+      </fieldset>
     </form>
     <p class="description">${product.description}</p>
   `;
