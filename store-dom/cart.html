@@ -11,6 +11,7 @@
         <script src="script/products.js" defer></script>
         <!-- <script src="script/productCards.js" defer></script> -->
         <script src="script/cart.js" defer></script>
+        <script src="script/buy.js" defer></script>
         <title>Tienda Virtual</title>
     </head>
     <body>
@@ -29,13 +30,11 @@
                                     <img src="assets/facebook.png" alt="" />
                                 </a>
                             </li>
-
                             <li>
                                 <a href="#">
                                     <img src="assets/instagram.png" alt="" />
                                 </a>
                             </li>
-
                             <li>
                                 <a href="cart.html">
                                     <img src="assets/shopping-cart.png" alt="" />
@@ -61,6 +60,7 @@
             <div class="container">
                 <div class="product-container" id="products">
                     <article id="cart-products" class="item-cart">
+                        <!-- <h1 class="no-products-message">No hay productos en el carrito</h1> -->
                         <!-- <div class="cart-product">
                             <img src="assets/mock1.jpg" height="150" alt="" />
                             <div class="cart-product-detail">
@@ -77,10 +77,10 @@
                             <span class="cart-resume-title">Resumen del pedido</span>
                             <div class="cart-resume-total">
                                 <span class="cart-resume-total-title">Total</span>
-                                <div class="cart-resume-total-price">S/<span id="total-price">1000</span></div>
+                                <div class="cart-resume-total-price">S/<span id="total-price">0.00</span></div>
                             </div>
                             <span class="cart-resume-tax">Incluye impuestos y percepcion AFIP</span>
-                            <button class="cart-resume-checkout">Finaliza tu compra</button>
+                            <button id="finalizar-compra" class="cart-resume-checkout">Finaliza tu compra</button>
                         </div>
                     </article>
                 </div>
