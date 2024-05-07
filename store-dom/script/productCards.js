@@ -29,7 +29,3 @@ const printCards = (arrayOfProducts, idSelector) => {
 }
 
 printCards(products, 'products')
-
-
-
-

@@ -98,10 +98,10 @@ const getProductCheckoutTemplate = (product) => {
       <div class="checkout-process">
         <div class="top">
           <input id="quantity" type="number" value="1" min="1" max="10" onchange="changeSubtotal(event)">
-          <button class="btn-primary">Comprar</button>
+          <button class="btn btn-primary">Comprar</button>
         </div>
         <div class="bottom">
-          <button class="btn-outline" onclick="saveProduct()">Agregar al carrito</button>
+          <button class="btn btn-outline" onclick="saveProduct()">Agregar al carrito</button>
         </div>
       </div>
     </div>

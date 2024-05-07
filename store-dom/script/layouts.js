@@ -1,6 +1,29 @@
 //? PARTE 01 NAV
+const socialSelector = document.getElementById("social");
+
+const optionsSocial = [
+  { iconClass: "fa-brands fa-facebook", linkTo: "#" },
+  { iconClass: "fa-brands fa-instagram", linkTo: "#" },
+  { iconClass: "fa-solid fa-cart-shopping", linkTo: "cart.html" },
+  { iconClass: "fa-solid fa-star", linkTo: "favorites.html" },
+];
+
+for (let option of optionsSocial) {
+  const listItem = document.createElement("li"); //nuevo
+  
+  const anchor = document.createElement("a");
+  anchor.href = option.linkTo;
+
+  const icon = document.createElement("i");
+  icon.className = option.iconClass;
+
+  anchor.appendChild(icon)
+  listItem.appendChild(anchor); //nuevo
+  socialSelector.appendChild(listItem);
+}
+
+//? PARTE 02 NAV
 const navSelector = document.getElementById("nav");
-//console.log(navSelector);
 
 const optionsNav = [
   { title: "Ofertas", linkTo: "#" },
@@ -14,7 +37,6 @@ for (let option of optionsNav) {
   const listItem = document.createElement("li"); //nuevo
   const anchor = document.createElement("a");
 
-  anchor.className = "nav-button";
   anchor.textContent = option.title;
   anchor.href = option.linkTo;
 
@@ -22,7 +44,7 @@ for (let option of optionsNav) {
   navSelector.appendChild(listItem);
 }
 
-//? PARTE 02 FOOTER
+//? PARTE 03 FOOTER
 const footerSelector = document.getElementById('footer');
 
 const optionsFooter = [
